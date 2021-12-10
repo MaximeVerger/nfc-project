@@ -1,10 +1,10 @@
 <template>
   <button id="nfc">Permission NFC</button>
-    <p>
-        <button onclick="readTag()">Test NFC Read</button>
-        <button onclick="writeTag()">Test NFC Write</button>
-    </p>
-    <pre id="log"></pre>
+  <p>
+      <button onclick="readTag()">Test NFC Read</button>
+      <button onclick="writeTag()">Test NFC Write</button>
+  </p>
+  <pre id="log"></pre>
 </template>
 
 <script>
