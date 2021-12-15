@@ -63,7 +63,7 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write({'id': 1, 'name': 'Félix'});
+            await ndef.write({records: [{ recordType: "mime", data: {'id':12, 'name':'Felix'} }]});
             this.consoleLog("NDEF message written!");
           } catch(error) {
             this.consoleLog(error);
