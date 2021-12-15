@@ -63,7 +63,7 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write("06 46 24 84 80");
+            await ndef.write("{'id': 1, 'name': 'Félix'}");
             this.consoleLog("NDEF message written!");
           } catch(error) {
             this.consoleLog(error);
