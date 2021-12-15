@@ -1,8 +1,8 @@
 <template>
   <button v-on:click="askPermission" id="nfc">Permission NFC</button>
   <p>
-      <button onclick="readTag()">Test NFC Read</button>
-      <button onclick="writeTag()">Test NFC Write</button>
+      <button v-on:click="readTag">Test NFC Read</button>
+      <button v-on:click="writeTag">Test NFC Write</button>
   </p>
 
   <pre id="log"></pre>
@@ -17,6 +17,16 @@ export default {
     };
   },
   methods: {
+<<<<<<< HEAD
+=======
+    addNewTodo(newTodoName) {
+        this.todos.push({
+            id: Date.now(),
+            label: newTodoName,
+            done: false,
+        });
+    },
+>>>>>>> 8a5af1901be72185e8472d52eeef0e244a5173da
     displayOutcome(type, outcome){
       return function() {
         var argList = [outcome, type].concat([].slice.call(arguments));
@@ -35,29 +45,29 @@ export default {
       };
     },
     consoleLog(data){
-      var logElement = document.getElementById('log');
-      logElement.innerHTML += data + '\n';
+        var logElement = document.getElementById('log');
+        logElement.innerHTML += data + '\n';
     },
     /*global NDEFReader*/
     async readTag(){
-      if ("NDEFReader" in window) {
-        const ndef = new NDEFReader();
-        try {
-          await ndef.scan();
-          ndef.onreading = event => {
-            const decoder = new TextDecoder();
-            for (const record of event.message.records) {
-              this.consoleLog("Record type:  " + record.recordType);
-              this.consoleLog("MIME type:    " + record.mediaType);
-              this.consoleLog("=== data ===\n" + decoder.decode(record.data));
+        if ("NDEFReader" in window) {
+            const ndef = new NDEFReader();
+            try {
+            await ndef.scan();
+            ndef.onreading = event => {
+                const decoder = new TextDecoder();
+                for (const record of event.message.records) {
+                this.consoleLog("Record type:  " + record.recordType);
+                this.consoleLog("MIME type:    " + record.mediaType);
+                this.consoleLog("=== data ===\n" + decoder.decode(record.data));
+                }
             }
-          }
-        } catch(error) {
-          this.consoleLog(error);
+            } catch(error) {
+            this.consoleLog(error);
+            }
+        } else {
+            this.consoleLog("Web NFC is not supported.");
         }
-      } else {
-          this.consoleLog("Web NFC is not supported.");
-      }
     },
     async writeTag(){
       if ("NDEFReader" in window) {
@@ -74,18 +84,18 @@ export default {
       }
     },
     askPermission(){
-      if ('NDEFReader' in window) {
-        const reader = new NDEFReader();
-        reader.scan()
-        .then(() => {
-          this.displayOutcome("nfc", "success")("Successfully started NFC scan");
-        })
-        .catch((err) => {
-          this.displayOutcome("nfc", "error")(err);
-        });
-      } else {
-        this.displayOutcome("nfc", "error")("NDEFReader is not available");
-      }
+        if ('NDEFReader' in window) {
+            const reader = new NDEFReader();
+            reader.scan()
+            .then(() => {
+            this.displayOutcome("nfc", "success")("Successfully started NFC scan");
+            })
+            .catch((err) => {
+            this.displayOutcome("nfc", "error")(err);
+            });
+        } else {
+            this.displayOutcome("nfc", "error")("NDEFReader is not available");
+        }
     }
   }
 }
