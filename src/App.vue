@@ -17,16 +17,6 @@ export default {
     };
   },
   methods: {
-<<<<<<< HEAD
-=======
-    addNewTodo(newTodoName) {
-        this.todos.push({
-            id: Date.now(),
-            label: newTodoName,
-            done: false,
-        });
-    },
->>>>>>> 8a5af1901be72185e8472d52eeef0e244a5173da
     displayOutcome(type, outcome){
       return function() {
         var argList = [outcome, type].concat([].slice.call(arguments));
