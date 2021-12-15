@@ -4,6 +4,7 @@
       <button v-on:click="readTag">Test NFC Read</button>
       <button v-on:click="writeTag">Test NFC Write</button>
   </p>
+
   <pre id="log"></pre>
 </template>
 
@@ -16,13 +17,6 @@ export default {
     };
   },
   methods: {
-    addNewTodo(newTodoName) {
-        this.todos.push({
-            id: Date.now(),
-            label: newTodoName,
-            done: false,
-        });
-    },
     displayOutcome(type, outcome){
       return function() {
         var argList = [outcome, type].concat([].slice.call(arguments));
