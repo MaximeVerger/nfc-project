@@ -63,7 +63,7 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write("Writing data on an empty NFC tag is fun!", { overwrite: false });
+            await ndef.write("Writing data on an empty NFC tag is fun!", options = { overwrite: false });
             this.consoleLog("NDEF message written!");
           } catch(error) {
             this.consoleLog(error);
