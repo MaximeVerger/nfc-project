@@ -63,7 +63,7 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write("Et bonsoir");
+            await ndef.write(0);
             this.consoleLog("NDEF message written!");
           } catch(error) {
             this.consoleLog(error);
