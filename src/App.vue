@@ -52,6 +52,7 @@ export default {
                 for (const record of event.message.records) {
                   var data = decoder.decode(record.data);
                   var persedData = JSON.parse(data);
+                  this.consoleLog("TOTOTITITATA")
                   this.consoleLog(data);
                   this.consoleLog(persedData);
                 }
