@@ -4,7 +4,10 @@
       <button v-on:click="readTag">Test NFC Read</button>
       <button v-on:click="writeTag">Test NFC Write</button>
   </p>
-
+  <p>
+    <label for='name'>Nom</label>
+    <input id='name' v-model="message" placeholder="Nom animal">
+  </p>
   <pre id="log"></pre>
 </template>
 
