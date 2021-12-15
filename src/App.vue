@@ -61,15 +61,14 @@ export default {
     },
     async writeTag(){
       if ("NDEFReader" in window) {
-          const ndef = new NDEFReader();
-          try {
-            await ndef.write("Writing data on an empty NFC tag is fun!", options = { overwrite: false });
-            this.consoleLog("NDEF message written!");
-          } catch(error) {
-            this.consoleLog(error);
-          }
-      } else {
-          this.consoleLog("Web NFC is not supported.");
+        const ndef = new NDEFReader();
+        ndef.write(
+          "Hello World"
+        ).then(() => {
+          console.log("Message written.");
+        }).catch(error => {
+          console.log(`Write failed :-( try again: ${error}.`);
+        });
       }
     },
     askPermission(){
