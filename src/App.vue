@@ -1,8 +1,8 @@
 <template>
   <button v-on:click="askPermission" id="nfc">Permission NFC</button>
   <p>
-      <button v-on:click="readTag()">Test NFC Read</button>
-      <button v-on:click="writeTag()">Test NFC Write</button>
+      <button v-on:click="readTag">Test NFC Read</button>
+      <button v-on:click="writeTag">Test NFC Write</button>
   </p>
   <pre id="log"></pre>
 </template>
