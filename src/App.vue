@@ -69,7 +69,7 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write("What Web Can Do Today");
+            await ndef.write("Et bonsoir");
             this.consoleLog("NDEF message written!");
           } catch(error) {
             this.consoleLog(error);
