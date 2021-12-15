@@ -4,6 +4,7 @@
       <button onclick="readTag()">Test NFC Read</button>
       <button onclick="writeTag()">Test NFC Write</button>
   </p>
+
   <pre id="log"></pre>
 </template>
 
@@ -16,13 +17,6 @@ export default {
     };
   },
   methods: {
-    addNewTodo(newTodoName) {
-      this.todos.push({
-        id: Date.now(),
-        label: newTodoName,
-        done: false,
-      });
-    },
     displayOutcome(type, outcome){
       return function() {
         var argList = [outcome, type].concat([].slice.call(arguments));
@@ -69,8 +63,9 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write("What Web Can Do Today");
-            this.consoleLog("NDEF message written!");
+            await ndef.write({
+              records: [{ recordType: "url", data: "http://example.com/" }]
+            });
           } catch(error) {
             this.consoleLog(error);
           }
