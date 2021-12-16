@@ -54,7 +54,7 @@ export default {
                   json = decoder.decode(record.data)
                   parsed = json.split(" ");
                   var Element = document.getElementById(parsed[0]);
-                  Element.ariaValueText = parsed[1]
+                  Element.innerHTML += parsed[1]
                   this.consoleLog("=== data ===\n" + json);
                 }
                 
