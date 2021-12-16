@@ -56,7 +56,7 @@ export default {
                 //   parsedJSON = JSON.parse(json)
                   this.consoleLog("=== data ===\n" + json);
                 //   this.consoleLog("=== data ===\n" + parsedJSON);
-                  this.consoleLog("TOTOTITITATA")
+                //   this.consoleLog("TOTOTITITATA")
 
                 }
                 
