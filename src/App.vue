@@ -49,11 +49,16 @@ export default {
             await ndef.scan();
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
+                // for (const record of event.message.records) {
+                //   var data = decoder.decode(record.data);
+                //   var persedData = JSON.parse(data);
+                //   this.consoleLog("TOTOTITITATA");
+                //   this.consoleLog(data);
+                //   this.consoleLog(persedData);
                 for (const record of event.message.records) {
-                  consoleLog("Record type:  " + record.recordType);
-                  consoleLog("MIME type:    " + record.mediaType);
-                  consoleLog("=== data ===\n" + decoder.decode(record.data));
-                  consoleLog("=== data ===\n" + JSON.parse(decoder.decode(record.data)));
+                    consoleLog("Record type:  " + record.recordType);
+                    consoleLog("MIME type:    " + record.mediaType);
+                    consoleLog("=== data ===\n" + decoder.decode(record.data));
                 }
             }
           } catch(error) {
