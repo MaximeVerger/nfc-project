@@ -48,7 +48,7 @@ export default {
             try {
             await ndef.scan();
             ndef.onreading = event => {
-                const decoder = new TextDecoder();
+                //const decoder = new TextDecoder();
                 for (const record of event.message.records) {
                   this.consoleLog("TOTOTITITATA")
                 }
