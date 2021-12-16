@@ -51,11 +51,13 @@ export default {
                 const decoder = new TextDecoder();
                 var json = " " ;
                 var parsedJSON = " "; 
+                var name = "";
                 for (const record of event.message.records) {
-                  json = decoder.decode(record.data)
-                  parsedJSON = JSON.parse(json)
+                  json = decoder.decode(record.data);
+                  parsedJSON = JSON.parse(json);
+                  name = parsedJSON.name;
                   this.consoleLog("=== data ===\n" + json);
-                  this.consoleLog("=== data ===\n" + parsedJSON.name);
+                  this.consoleLog("=== data ===\n" + name);
                 //   this.consoleLog("TOTOTITITATA")
 
                 }
