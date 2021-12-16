@@ -54,7 +54,7 @@ export default {
                   json = decoder.decode(record.data);
                   this.consoleLog("=== data ===\n" + json);
                 //   this.consoleLog("TOTOTITITATA")
-                this.completedData(json);
+                  this.completedData(json);
 
                 }
                 
