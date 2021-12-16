@@ -51,7 +51,6 @@ export default {
                 var json = " ";
                 var parsed = " ";
                 for (const record of event.message.records) {
-                  var tab = [];
                   json = decoder.decode(record.data)
                   parsed = json.split(" ");
                   var Element = document.getElementById(parsed[0]);
