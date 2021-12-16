@@ -51,7 +51,11 @@ export default {
                 const decoder = new TextDecoder();
                 var json = " ";
                 for (const record of event.message.records) {
+                  var tab = [];
                   json = decoder.decode(record.data)
+                  tab.append(json.split(" "))
+                  var lenom = document.getElementById(tab[0])
+                  lenom.setAttribute("placeholder", tab[1])
                   this.consoleLog("=== data ===\n" + json);
                 }
                 
