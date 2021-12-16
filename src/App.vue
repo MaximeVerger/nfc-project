@@ -44,22 +44,21 @@ export default {
     /*global NDEFReader*/
     async readTag(){
         if ("NDEFReader" in window) {
-            const ndef = new NDEFReader();
-            try {
-              await ndef.scan();
-              ndef.onreading = event => {
+          const ndef = new NDEFReader();
+          try {
+            await ndef.scan();
+            ndef.onreading = event => {
                 const decoder = new TextDecoder();
                 for (const record of event.message.records) {
-                  var data = decoder.decode(record.data);
-                  var persedData = JSON.parse(data);
-                  this.consoleLog("TOTOTITITATA");
-                  this.consoleLog(data);
-                  this.consoleLog(persedData);
+                  consoleLog("Record type:  " + record.recordType);
+                  consoleLog("MIME type:    " + record.mediaType);
+                  consoleLog("=== data ===\n" + decoder.decode(record.data));
+                  consoleLog("=== data ===\n" + JSON.parse(decoder.decode(record.data)));
                 }
-              }
-            } catch(error) {
-            this.consoleLog(error);
             }
+          } catch(error) {
+          this.consoleLog(error);
+          }
         } else {
             this.consoleLog("Web NFC is not supported.");
         }
@@ -70,7 +69,6 @@ export default {
           try {
             await ndef.write("{'id':12, 'name':'Felix'}");
             this.consoleLog("NDEF message written!");
-            this.consoleLog("TOTOTITITATA");
           } catch(error) {
             this.consoleLog(error);
           }
