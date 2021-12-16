@@ -49,16 +49,13 @@ export default {
             await ndef.scan();
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
-                var json = " " ;
+                const json ;
                 for (const record of event.message.records) {
-                  json = decoder.decode(record.data);
-                  this.consoleLog("=== data ===\n" + json);
-                //   this.consoleLog("TOTOTITITATA")
-                this.completedData(json);
-
+                  json = decoder.decode(record.data)
+                  this.consoleLog("=== data ===\n" + decoder.decode(record.data));
                 }
                 
-              }
+            }
             } catch(error) {
             this.consoleLog(error);
             }
@@ -70,7 +67,10 @@ export default {
       if ("NDEFReader" in window) {
           const ndef = new NDEFReader();
           try {
-            await ndef.write("{'id':12, 'name':'Felix'}");
+            await ndef.write({
+              id: [{ recordType: "text", data: "12" }],
+              name: [{ recordType: "text", data: "Felix" }]
+            });
             this.consoleLog("NDEF message written!");
           } catch(error) {
             this.consoleLog(error);
@@ -92,11 +92,6 @@ export default {
         } else {
             this.displayOutcome("nfc", "error")("NDEFReader is not available");
         }
-    },
-    completedData(data) {
-      var name = JSON.parse(data).name
-      var logElement = document.getElementById('name');
-      logElement.textContent = name
     }
   }
 }
