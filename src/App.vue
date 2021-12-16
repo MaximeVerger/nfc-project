@@ -99,7 +99,6 @@ export default {
         }
     },
     printData(data){
-      this.consoleLog("ça marche");
       var parsed = data.split(" ");
       var Element = document.getElementById(parsed[0]);
       Element.innerHTML += parsed[1]
