@@ -4,7 +4,11 @@
       <button v-on:click="readTag">Test NFC Read</button>
       <button v-on:click="writeTag">Test NFC Write</button>
   </p>
-  <pre id="name"></pre><pre id="lastname"></pre>
+  <pre id="name"></pre>
+  <pre id="lastname"></pre>
+  <pre id="birthday"></pre>
+  <pre id="phone"></pre>
+
   <pre id="log"></pre>
 </template>
 
