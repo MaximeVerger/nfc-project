@@ -57,7 +57,6 @@ export default {
                   parsed = json.split(" ");
                   var Element = document.getElementById(parsed[0]);
                   Element.innerHTML += parsed[1]
-                  this.consoleLog("=== data ===\n" + json);
                 }
                 
             }
