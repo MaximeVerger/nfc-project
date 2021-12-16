@@ -50,10 +50,10 @@ export default {
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
                 for (const record of event.message.records) {
-                  consoleLog("Record type:  " + record.recordType);
-                  consoleLog("MIME type:    " + record.mediaType);
-                  consoleLog("=== data ===\n" + decoder.decode(record.data));
-                  consoleLog("=== data ===\n" + JSON.parse(decoder.decode(record.data)));
+                  this.consoleLog("Record type:  " + record.recordType);
+                  this.consoleLog("MIME type:    " + record.mediaType);
+                  this.consoleLog("=== data ===\n" + decoder.decode(record.data));
+                  this.consoleLog("=== data ===\n" + JSON.parse(decoder.decode(record.data)));
                 }
             }
           } catch(error) {
