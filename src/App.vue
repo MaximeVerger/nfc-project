@@ -56,7 +56,6 @@ export default {
                   this.consoleLog(data);
                   this.consoleLog(persedData);
                 }
-                
             }
             } catch(error) {
             this.consoleLog(error);
