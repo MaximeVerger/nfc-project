@@ -49,12 +49,18 @@ export default {
             await ndef.scan();
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
+                var json = " " ;
+                var parsedJSON = " "; 
                 for (const record of event.message.records) {
-                  this.consoleLog("=== data ===\n" + decoder.decode(record.data));
+                  json = decoder.decode(record.data)
+                  parsedJSON = JSON.parse(json)
+                  this.consoleLog("=== data ===\n" + json);
+                  this.consoleLog("=== data ===\n" + parsedJSON);
                   this.consoleLog("TOTOTITITATA")
+
                 }
                 
-            }
+              }
             } catch(error) {
             this.consoleLog(error);
             }
