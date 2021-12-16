@@ -54,8 +54,8 @@ export default {
                   var tab = [];
                   json = decoder.decode(record.data)
                   tab.append(json.split(" "))
-                  var lenom = document.getElementById(tab[0])
-                  lenom.setAttribute("placeholder", tab[1])
+                  var lenom = document.getElementById("name")
+                  lenom.setAttribute("placeholder", "Test")
                   this.consoleLog("=== data ===\n" + json);
                 }
                 
