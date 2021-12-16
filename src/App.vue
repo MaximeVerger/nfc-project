@@ -49,10 +49,10 @@ export default {
             await ndef.scan();
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
-                const json ;
+                var json = " ";
                 for (const record of event.message.records) {
                   json = decoder.decode(record.data)
-                  this.consoleLog("=== data ===\n" + decoder.decode(record.data));
+                  this.consoleLog("=== data ===\n" + json);
                 }
                 
             }
