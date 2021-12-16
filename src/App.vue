@@ -53,10 +53,8 @@ export default {
                 var json = " ";
                 var parsed = " ";
                 for (const record of event.message.records) {
-                  json = decoder.decode(record.data)
-                  parsed = json.split(" ");
-                  var Element = document.getElementById(parsed[0]);
-                  Element.innerHTML += parsed[1]
+                  json = decoder.decode(record.data);
+                  this.printData(json);
                 }
                 
             }
@@ -100,6 +98,11 @@ export default {
         } else {
             this.displayOutcome("nfc", "error")("NDEFReader is not available");
         }
+    },
+    printData(data){
+      parsed = data.split(" ");
+      var Element = document.getElementById(parsed[0]);
+      Element.innerHTML += parsed[1]
     }
   }
 }
