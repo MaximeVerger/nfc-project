@@ -69,9 +69,10 @@ export default {
           try {
             await ndef.write({
               records: [
-                { recordType: "text", data: "name : Felix" },
-                { recordType: "text", data: "lastname: Dupond" },
-                { recordType: "text", data: "birthday: 22/01/2010" }
+                { recordType: "text", data: "name Felix" },
+                { recordType: "text", data: "lastname Dupond" },
+                { recordType: "text", data: "birthday 22/01/2010" },
+                { recordType: "text", data: "phone 0659483729" }
               ],
             });
             this.consoleLog("NDEF message written!");
