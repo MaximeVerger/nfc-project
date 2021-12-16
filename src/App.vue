@@ -50,12 +50,11 @@ export default {
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
                 for (const record of event.message.records) {
-                  var data = decoder.decode(record.data);
-                  var persedData = JSON.parse(data);
-                  this.consoleLog(data);
+                  var datas = decoder.decode(record.data);
+                  var persedData = JSON.parse(datas);
+                  this.consoleLog(datas);
                   this.consoleLog(persedData);
                 }
-                
             }
             } catch(error) {
             this.consoleLog(error);
