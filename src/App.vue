@@ -44,21 +44,19 @@ export default {
     /*global NDEFReader*/
     async readTag(){
         if ("NDEFReader" in window) {
-          const ndef = new NDEFReader();
-          try {
+            const ndef = new NDEFReader();
+            try {
             await ndef.scan();
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
                 for (const record of event.message.records) {
-                  this.consoleLog("Record type:  " + record.recordType);
-                  this.consoleLog("MIME type:    " + record.mediaType);
-                  this.consoleLog("=== data ===\n" + decoder.decode(record.data));
-                  this.consoleLog("=== data ===\n" + JSON.parse(decoder.decode(record.data)));
+                  this.consoleLog("TOTOTITITATA")
                 }
+                
             }
-          } catch(error) {
-          this.consoleLog(error);
-          }
+            } catch(error) {
+            this.consoleLog(error);
+            }
         } else {
             this.consoleLog("Web NFC is not supported.");
         }
