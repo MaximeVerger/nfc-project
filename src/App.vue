@@ -53,6 +53,7 @@ export default {
                   consoleLog("Record type:  " + record.recordType);
                   consoleLog("MIME type:    " + record.mediaType);
                   consoleLog("=== data ===\n" + decoder.decode(record.data));
+                  consoleLog("=== data ===\n" + JSON.parse(decoder.decode(record.data)));
                 }
             }
           } catch(error) {
