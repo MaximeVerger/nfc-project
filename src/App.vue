@@ -54,11 +54,9 @@ export default {
                 var name = "";
                 for (const record of event.message.records) {
                   json = decoder.decode(record.data);
-                  parsedJSON = JSON.parse(json);
-                  name = parsedJSON.name;
                   this.consoleLog("=== data ===\n" + json);
-                  this.consoleLog("=== data ===\n" + name);
                 //   this.consoleLog("TOTOTITITATA")
+                this.completedData(json);
 
                 }
                 
@@ -96,6 +94,11 @@ export default {
         } else {
             this.displayOutcome("nfc", "error")("NDEFReader is not available");
         }
+    },
+    completedData(data) {
+      var name = JSON.parse(data).name
+      var logElement = document.getElementById('name');
+      logElement.textContent = name
     }
   }
 }
