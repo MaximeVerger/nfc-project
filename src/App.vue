@@ -56,9 +56,9 @@ export default {
                 //   this.consoleLog(data);
                 //   this.consoleLog(persedData);
                 for (const record of event.message.records) {
-                    consoleLog("Record type:  " + record.recordType);
-                    consoleLog("MIME type:    " + record.mediaType);
-                    consoleLog("=== data ===\n" + decoder.decode(record.data));
+                  consoleLog("Record type:  " + record.recordType);
+                  consoleLog("MIME type:    " + record.mediaType);
+                  consoleLog("=== data ===\n" + decoder.decode(record.data));
                 }
             }
           } catch(error) {
