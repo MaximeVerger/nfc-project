@@ -46,8 +46,8 @@ export default {
         if ("NDEFReader" in window) {
             const ndef = new NDEFReader();
             try {
-            await ndef.scan();
-            ndef.onreading = event => {
+              await ndef.scan();
+              ndef.onreading = event => {
                 const decoder = new TextDecoder();
                 for (const record of event.message.records) {
                   var data = decoder.decode(record.data);
@@ -56,7 +56,7 @@ export default {
                   this.consoleLog(data);
                   this.consoleLog(persedData);
                 }
-            }
+              }
             } catch(error) {
             this.consoleLog(error);
             }
@@ -70,6 +70,7 @@ export default {
           try {
             await ndef.write("{'id':12, 'name':'Felix'}");
             this.consoleLog("NDEF message written!");
+            this.consoleLog("TOTOTITITATA");
           } catch(error) {
             this.consoleLog(error);
           }
