@@ -68,8 +68,10 @@ export default {
           const ndef = new NDEFReader();
           try {
             await ndef.write({
-              id: [{ recordType: "text", data: "12" }],
-              name: [{ recordType: "text", data: "Felix" }]
+              records: [
+                { recordType: "text", data: "12" },
+                { recordType: "text", data: "Felix" }
+              ],
             });
             this.consoleLog("NDEF message written!");
           } catch(error) {
