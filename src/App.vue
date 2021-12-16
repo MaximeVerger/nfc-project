@@ -57,7 +57,6 @@ export default {
                   Element.innerHTML += parsed[1]
                   this.consoleLog("=== data ===\n" + json);
                 }
-                
             }
             } catch(error) {
             this.consoleLog(error);
