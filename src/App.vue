@@ -5,8 +5,7 @@
       <button v-on:click="writeTag">Test NFC Write</button>
   </p>
   <p>
-    <label for='name'>Nom</label>
-    <input id='name' v-model="message" placeholder="Nom animal">
+    <input id='name' v-model="name">
   </p>
   <pre id="log"></pre>
 </template>
@@ -50,8 +49,12 @@ export default {
             ndef.onreading = event => {
                 const decoder = new TextDecoder();
                 var json = " ";
+                var parsed = " ";
                 for (const record of event.message.records) {
                   json = decoder.decode(record.data)
+                  parsed = json.split(" ");
+                  var Element = document.getElementById(parsed[0]);
+                  Element.ariaValueText = parsed[1]
                   this.consoleLog("=== data ===\n" + json);
                 }
                 
