@@ -9,6 +9,12 @@
   <pre id="birthday"></pre>
   <pre id="phone"></pre>
 
+  <form @submit.prevent="writeTag">
+    <label for="name">Nouveau nom</label>
+    <input id="name" required v-model="newName" />
+    <button>Ajouter</button>
+  </form>
+
   <pre id="log"></pre>
 </template>
 
@@ -17,7 +23,7 @@ export default {
   name: "App",
   data() {
     return {
-
+        newName: "",
     };
   },
   methods: {
@@ -69,7 +75,7 @@ export default {
           try {
             await ndef.write({
               records: [
-                { recordType: "text", data: "name Felix" },
+                { recordType: "text", data: "name " + this.newName },
                 { recordType: "text", data: "lastname Dupond" },
                 { recordType: "text", data: "birthday 22/01/2010" },
                 { recordType: "text", data: "phone 0659483729" }
