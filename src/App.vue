@@ -12,6 +12,8 @@
             Ce site a pour fonction de vous aider à retrouver le propriétaire d'un animale, 
             et de vous permettre d'entrer vos informations et celle de l'animale sur une puce NFC
             pour pouvoir vous joindre si quelqu'un d'autre le trouve.
+        </p>
+        <p>
             ATTENTION : Ce site ne fonctionne qu'avec le navigateur Chrome !
         </p>
     </article>
