@@ -48,7 +48,8 @@
         <ul>
             <li> Votre smartphone ne peut pas forcément lire les puces NFC </li>
             <li> Vous devez utiliser le navigateur Chrome </li>
-            <ul> Pour activer la permission de votre téléphone en cas de problème
+            <li> Pour activer la permission de votre téléphone en cas de problème </li>
+            <ul> 
                 <li>Essayez de l'activer manuellement sur votre téléphone</li>
                 <li>Essayez d'appuyer sur le bouton "Permission NFC" ci dessous</li>
             </ul>
