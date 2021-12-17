@@ -10,8 +10,14 @@
   <pre id="phone"></pre>
 
   <form @submit.prevent="writeTag">
-    <label for="name">Nouveau nom</label>
+    <label for="name">Nom de l'animale : </label>
     <input id="name" required v-model="newName" />
+    <label for="masterName">Nom de famille : </label>
+    <input id="masterName" required v-model="masterName" />
+    <label for="birthday">Date de naissance : </label>
+    <input id="birthday" required v-model="birthday" />
+    <label for="phone">Téléphone du propriétaire : </label>
+    <input id="phone" required v-model="phone" />
     <button>Ajouter</button>
   </form>
 
@@ -24,6 +30,9 @@ export default {
   data() {
     return {
         newName: "",
+        masterName: "",
+        birthday: "",
+        phone: ""
     };
   },
   methods: {
@@ -76,9 +85,9 @@ export default {
             await ndef.write({
               records: [
                 { recordType: "text", data: "name " + this.newName },
-                { recordType: "text", data: "lastname Dupond" },
-                { recordType: "text", data: "birthday 22/01/2010" },
-                { recordType: "text", data: "phone 0659483729" }
+                { recordType: "text", data: "lastname " + this.masterName },
+                { recordType: "text", data: "birthday " + this.birthday},
+                { recordType: "text", data: "phone " + this.phone }
               ],
             });
             this.consoleLog("NDEF message written!");
