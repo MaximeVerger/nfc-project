@@ -22,6 +22,11 @@
     <article>
         <label>Il faut appuyer puis placer la puce derrière votre smartphone</label>
         <button v-on:click="readTag">Lire</button>
+        <pre id="name"></pre>
+        <pre id="lastname"></pre>
+        <pre id="birthday"></pre>
+        <pre id="phone"></pre>
+        <pre id="log"></pre>
     </article>
 
     <h2>Ecrire sur la puce d'un animale</h2>
@@ -29,14 +34,14 @@
         <label>Il faut appuyer puis placer la puce derrière votre smartphone</label>
         <label>Ne surtout pas écrire sur la puce d'un animale qui n'est pas le votre !</label>
         <form @submit.prevent="writeTag">
-            <label for="name">Nom de l'animale : </label>
-            <input id="name" required v-model="newName" />
+            <label for="animalName">Nom de l'animale : </label>
+            <input id="animalName" required v-model="newName" />
             <label for="masterName">Nom de famille : </label>
             <input id="masterName" required v-model="masterName" />
-            <label for="birthday">Date de naissance : </label>
-            <input id="birthday" required v-model="birthday" />
-            <label for="phone">Téléphone du propriétaire : </label>
-            <input id="phone" required v-model="phone" />
+            <label for="animalBirthday">Date de naissance : </label>
+            <input id="animalBirthday" required v-model="birthday" />
+            <label for="masterPhone">Téléphone du propriétaire : </label>
+            <input id="masterPhone" required v-model="phone" />
             <button>Ecrire</button>
         </form>
         <!-- <button v-on:click="readTag">Ecrire</button> -->
@@ -60,12 +65,6 @@
     <!-- <p>
         <button v-on:click="writeTag">Test NFC Write</button>
     </p> -->
-
-    <pre id="name"></pre>
-    <pre id="lastname"></pre>
-    <pre id="birthday"></pre>
-    <pre id="phone"></pre>
-    <pre id="log"></pre>
 </main>
 
 <footer>
